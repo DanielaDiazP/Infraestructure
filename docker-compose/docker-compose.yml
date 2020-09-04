@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  postgres_db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+
+  testangular:
+    image: danieladiazp/test_angular:1.0
+    ports: 
+      - 4200:4200
+    depends_on:
+      - postgres_db
+    
+  laravel:
+    image: danieladiazp/test_laravel:1.0
+    environment: 
+      DB_CONNECTION: pgsql
+      DB_HOST: 'postgres_db'
+      DB_PORT: 5432
+      DB_DATABASE: postgres
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+    ports: 
+      - 8000:8000
+    depends_on:
+      - postgres_db
