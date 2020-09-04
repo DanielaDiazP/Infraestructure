@@ -16,3 +16,6 @@ spec:
           image: danieladiazp/test_angular:1.0
           ports:
             - containerPort: 4200
+          env:
+            - name: API
+              value: laravel

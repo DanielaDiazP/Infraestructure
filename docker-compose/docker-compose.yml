@@ -13,8 +13,8 @@ services:
     image: danieladiazp/test_angular:1.0
     ports: 
       - 4200:4200
-    depends_on:
-      - postgres_db
+    environment: 
+      API: http://localhost:8000/api
     
   laravel:
     image: danieladiazp/test_laravel:1.0
