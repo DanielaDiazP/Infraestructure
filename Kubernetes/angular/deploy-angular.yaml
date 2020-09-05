@@ -14,11 +14,12 @@ spec:
         app: angular
     spec:
       containers:
-        - name: angular
-          image: danieladiazp/test_angular:1.0
-          ports:
-            - containerPort: 4200
-          env:
-            - name: API
-              value: laravel
-          
+      - name: angular
+        image: danieladiazp/test_angular:1.0
+        ports:
+        - containerPort: 4200
+        env:
+        - name: PORT
+          value: '30201'
+        - name: API
+          value: laravel
