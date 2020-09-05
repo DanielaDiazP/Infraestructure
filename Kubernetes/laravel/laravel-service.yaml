@@ -5,8 +5,10 @@ metadata:
   labels:
     app: laravel
 spec:
+  type: NodePort
   selector: 
     app: laravel
   ports:
-   - protocol: TCP
-     port: 8000
+    - protocol: TCP
+      nodePort: 30001
+      port: 8000

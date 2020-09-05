@@ -12,23 +12,31 @@ spec:
         app: db
     spec:
       containers:
-        - name: db
-          image: postgres:12
-          ports:
-            - containerPort: 5432
-          env:
-            - name: POSTGRES_DB
-              valueFrom:
-                configMapKeyRef:
-                  name: db-config
-                  key: db_name
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: db-secret
-                  key: db_user
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: db-secret
-                  key: db_pass
+      - name: db
+        image: postgres:12
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+                name: db-config
+                key: db_name
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: db_user
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: db_pass
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-volume-mount
+          subPath: postgresdb
+      volumes:
+      - name: postgres-volume-mount
+        persistentVolumeClaim:
+          claimName: postgres-pvc

@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: angular
+  labels:
+    app: angular
 spec:
   selector:
     matchLabels:
@@ -19,3 +21,4 @@ spec:
           env:
             - name: API
               value: laravel
+          
