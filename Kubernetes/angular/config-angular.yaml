@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: angular-config
+data:
+  API: http://localhost:30201/
+  PORT: '30201'

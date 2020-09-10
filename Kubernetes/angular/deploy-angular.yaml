@@ -19,7 +19,13 @@ spec:
         ports:
         - containerPort: 4200
         env:
-        - name: PORT
-          value: '30201'
         - name: API
-          value: laravel
+          valueFrom:
+            configMapKeyRef:
+              name: angular-config
+              key: API
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: angular-config
+              key: PORT
