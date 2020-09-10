@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: angular-config
 data:
-  API: http://localhost:30201/
+  API: http://35.238.244.82/
   PORT: '30201'
