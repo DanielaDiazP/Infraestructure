@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: angular
-        image: danieladiazp/test_angular:1.0
+        image: danieladiazp/test_angular:v1.0
         ports:
         - containerPort: 4200
         env:
