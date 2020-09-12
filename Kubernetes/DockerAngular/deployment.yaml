@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: angular
-        image: PROYECTO/NOMBRE_IMAGEN:TAG
+        image: DOCKER_IMAGE:TAG
         ports:
         - containerPort: 4200
         env:
