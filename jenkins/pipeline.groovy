@@ -13,7 +13,7 @@ pipeline {
         stage("Checkout app-code") {
             steps {
                dir('app') {
-                    git url:"${env.APP_REPO_URL}" , branch: "${tag}"
+                    git url:"${env.APP_REPO_URL}" , branch: "${version}"
                 } 
             }
         }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 dir('app') {
                     script {
-                        dockerImage = docker.build("${env.DOCKER_IMAGE}:${version}")
+                        dockerImage = docker.build("${env.DOCKER_IMAGE}:${tag}")
                     }
                 }
             }
