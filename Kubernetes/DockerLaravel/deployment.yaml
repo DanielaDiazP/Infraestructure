@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: laravel
-          image: danieladiazp/test_laravel:1.0
+          image: PROYECTO/NOMBRE_IMAGEN:TAG
           ports:
           - containerPort: 8000
           env:
